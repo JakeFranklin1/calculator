@@ -38,7 +38,7 @@ function handleNumber(number) {
     previousNum = "";
     currentDisplayNumber.textContent = currentNum;
   }
-  if (currentNum.length <= 11) {
+  if (currentNum.length <= 8) {
     currentNum += number;
     currentDisplayNumber.textContent = currentNum;
   }
@@ -102,7 +102,7 @@ function displayResults() {
   if (previousNum.length <= 11) {
     currentDisplayNumber.textContent = previousNum;
   } else {
-    currentDisplayNumber.textContent = previousNum.slice(0, 11) + "...";
+    currentDisplayNumber.textContent = previousNum.slice(0, 8) + "...";
   }
   previousDisplayNumber.textContent = "0";
   operator = "";
