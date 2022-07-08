@@ -79,7 +79,7 @@ function compute() {
     previousNum += currentNum;
   } else if (operator === "-") {
     previousNum -= currentNum;
-  } else if (operator === "x") {
+  } else if (operator === "*") {
     previousNum *= currentNum;
   } else if (operator === "/") {
     if (currentNum <= 0) {
@@ -123,32 +123,3 @@ function addDecimal() {
     currentDisplayNumber.textContent = currentNum;
   }
 }
-
-// LOGIC
-
-// const add = (a, b) => a + b;
-
-// const subtract = (a, b) => a - b;
-
-// const divide = (a, b) => a / b;
-
-// const multiply = (a, b) => a * b;
-
-// const operate = function (operator, a, b) {
-//   a = Number(a);
-//   b = Number(b);
-
-//   switch (operator) {
-//     case "+":
-//       return add(a, b);
-//     case "-":
-//       return subtract(a, b);
-//     case "*":
-//       return multiply(a, b);
-//     case "/":
-//       if (b === 0) return null;
-//       else return divide(a, b);
-//     default:
-//       return null;
-//   }
-// };
