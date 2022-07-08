@@ -48,7 +48,7 @@ main {
   margin: auto;
   min-height: 300px;
   box-shadow: 0 8px 50px -7px black;
-  background: #3a4655;
+  background-color:rgb(66, 80, 98);
   border: 2px solid rgb(47, 43, 57);
   border-radius: 2px;
 }
@@ -93,7 +93,7 @@ main {
 
 button {
   width: 25%;
-  background: #425062;
+  background-color:rgb(66, 80, 98);
   color: #fff;
   padding: 20px;
   display: inline-block;
@@ -112,12 +112,12 @@ button {
 .percent,
 .sign {
   color: #aeb3ba;
-  background: #404d5e;
+  background-color:rgb(66, 80, 98);
 }
 
 .clear {
   color: #d95d4e;
-  background: #404d5e;
+  background-color:rgb(66, 80, 98);
 }
 
 .clear:hover {

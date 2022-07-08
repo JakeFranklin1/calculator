@@ -2,13 +2,13 @@ let currentNum = "";
 let previousNum = "";
 let operator = "";
 
-const currentDispNum = document.querySelector(".calcDispCurrent");
-const previousDispNum = document.querySelector(".calcDispPrev");
+const currentDisplayNumber = document.querySelector(".calcDispCurrent");
+const previousDisplayNumber = document.querySelector(".calcDispPrev");
 
 const operators = document.querySelectorAll(".operator");
-const numberBtn = document.querySelectorAll(".operand");
+const numberButtons = document.querySelectorAll(".operand");
 const decimalBtn = document.querySelector(".decimal");
-const equalsBtn = document.querySelector(".equals");
+const equalsBtn = document.querySelector(".equal");
 const clear = document.querySelector(".clear");
 
 window.addEventListener("keydown", function (e) {
@@ -23,11 +23,11 @@ clear.addEventListener("click", clearCalculator);
 
 equalsBtn.addEventListener("click", () => {
   if (currentNum != "" && previousNum != "") {
-    calculate();
+    compute();
   }
 });
 
-numberBtn.forEach((btn) => {
+numberButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     handleNumber(e.target.textContent);
   });
@@ -36,11 +36,11 @@ numberBtn.forEach((btn) => {
 function handleNumber(number) {
   if (previousNum !== "" && currentNum !== "" && operator === "") {
     previousNum = "";
-    currentDispNum.textContent = currentNum;
+    currentDisplayNumber.textContent = currentNum;
   }
-  if (currentNum.length <= 8) {
+  if (currentNum.length <= 11) {
     currentNum += number;
-    currentDispNum.textContent = currentNum;
+    currentDisplayNumber.textContent = currentNum;
   }
 }
 
@@ -57,39 +57,37 @@ function handleOperator(op) {
   } else if (currentNum === "") {
     operatorCheck(op);
   } else {
-    calculate();
+    compute();
     operator = op;
-    currentDispNum.textContent = "0";
-    previousDispNum.textContent = previousNum + " " + operator;
+    currentDisplayNumber.textContent = "0";
+    previousDisplayNumber.textContent = previousNum + " " + operator;
   }
 }
 
 function operatorCheck(text) {
   operator = text;
-  previousDispNum.textContent = previousNum + " " + operator;
-  currentDispNum.textContent = "0";
+  previousDisplayNumber.textContent = previousNum + " " + operator;
+  currentDisplayNumber.textContent = "0";
   currentNum = "";
 }
 
-function calculate() {
+function compute() {
   previousNum = Number(previousNum);
   currentNum = Number(currentNum);
 
   if (operator === "+") {
-    previousNum = previousNum + currentNum;
+    previousNum += currentNum;
   } else if (operator === "-") {
-    previousNum = previousNum - currentNum;
-  } else if (operator === "*") {
-    previousNum = previousNum * currentNum;
+    previousNum -= currentNum;
+  } else if (operator === "x") {
+    previousNum *= currentNum;
   } else if (operator === "/") {
     if (currentNum <= 0) {
       previousNum = "lmao";
-      previousDispNum.textContent = "";
-      currentDispNum.textContent = previousNum;
-      operator = "";
+      displayResults();
       return;
     }
-    previousNum = previousNum / currentNum;
+    previousNum /= currentNum;
   }
   previousNum = roundNumber(previousNum);
   previousNum = previousNum.toString();
@@ -101,12 +99,12 @@ function roundNumber(num) {
 }
 
 function displayResults() {
-  if (previousNum.length <= 8) {
-    currentDispNum.textContent = previousNum;
+  if (previousNum.length <= 11) {
+    currentDisplayNumber.textContent = previousNum;
   } else {
-    currentDispNum.textContent = previousNum.slice(0, 8) + "...";
+    currentDisplayNumber.textContent = previousNum.slice(0, 11) + "...";
   }
-  previousDispNum.textContent = "0";
+  previousDisplayNumber.textContent = "0";
   operator = "";
   currentNum = "";
 }
@@ -115,14 +113,14 @@ function clearCalculator() {
   currentNum = "";
   previousNum = "";
   operator = "";
-  currentDispNum.textContent = "0";
-  previousDispNum.textContent = "0";
+  currentDisplayNumber.textContent = "0";
+  previousDisplayNumber.textContent = "0";
 }
 
 function addDecimal() {
   if (!currentNum.includes(".")) {
     currentNum += ".";
-    currentDispNum.textContent = currentNum;
+    currentDisplayNumber.textContent = currentNum;
   }
 }
 
