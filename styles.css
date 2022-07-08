@@ -1,0 +1,169 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /* footer support */
+  position: relative;
+  min-height: 100%;
+}
+
+.header {
+    font-size: 20px;
+}
+
+h1,
+h2 {
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.sub-header {
+    padding-bottom: 40px;
+    font-size: 15px;
+}
+
+
+body {
+  background: #eaebec;
+  /* footer support */
+  margin-bottom: 100px;
+  font-family: 'Roboto', sans-serif;
+}
+
+main {
+  margin: auto;
+  height: 75vh;
+  min-height: 500px;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.calc-body {
+  width: 275px;
+  margin: auto;
+  min-height: 300px;
+  box-shadow: 0 8px 50px -7px black;
+  background: #3a4655;
+  border: 2px solid rgb(47, 43, 57);
+  border-radius: 2px;
+}
+
+.calc-disp {
+  background: #3a4655;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.calcDispPrev {
+  text-align: right;
+  color: #727b86;
+  font-size: 21px;
+  padding-bottom: 10px;
+  padding-right: 8.1px;
+  border-bottom: dotted 1px;
+}
+
+.calcDispCurrent {
+  margin-top: 10px;
+  font-size: 45px;
+  text-align: right;
+  color: #fff;
+}
+
+/* .blink-me {
+  text-align: right;
+  padding-right: 8.1px;
+  animation: blinker 1s linear infinite;
+  color: yellow;
+  font-size: 20px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+} */
+/* Buttons */
+
+button {
+  width: 25%;
+  background: #425062;
+  color: #fff;
+  padding: 20px;
+  display: inline-block;
+  font-size: 25px;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: -4px;
+  border-right: solid 2px #3c4857;
+  border-bottom: solid 2px #3c4857;
+  transition: all 0.2s ease-in-out;
+  width: 67.5px;
+}
+
+.operator,
+.equals,
+.percent,
+.sign {
+  color: #aeb3ba;
+  background: #404d5e;
+}
+
+.clear {
+  color: #d95d4e;
+  background: #404d5e;
+}
+
+.clear:hover {
+  background: #993709;
+}
+
+button:hover {
+  background: #e0b612;
+  /* transform: rotate(5deg); */
+}
+
+#zero {
+  width: 50%;
+}
+
+.empty {
+  color: #425062;
+}
+
+.empty:hover {
+  background: #e0b612;
+  color: #e0b612;
+}
+/* Footer */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 12px;
+  border-top: 1px solid black;
+}
+
+.fa-github {
+  color: var(--font);
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+  color: black;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
+}
